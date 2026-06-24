@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 cap = cv2.VideoCapture(0)
-
+points=[]
 while True:
     success, img = cap.read()
 
@@ -27,6 +27,8 @@ while True:
 
             x, y, w, h = cv2.boundingRect(cnt)
 
+
+
             # Draw rectangle
             cv2.rectangle(
                 img,
@@ -40,6 +42,8 @@ while True:
             cx = x + w // 2
             cy = y + h // 2
 
+            points.append([cx, cy])
+
             # Draw center point
             cv2.circle(
                 img,
@@ -48,12 +52,16 @@ while True:
                 (0, 0, 255),
                 cv2.FILLED
             )
+    for i in range(1,len(points)):
+        cv2.line(img,points[i-1],points[i],(0,0,255),3)
 
     cv2.imshow("Camera", img)
     cv2.imshow("Mask", mask)
 
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
+    elif cv2.waitKey(1) & 0xFF == ord('c'):
+        points=[]
 
 cap.release()
 cv2.destroyAllWindows()
