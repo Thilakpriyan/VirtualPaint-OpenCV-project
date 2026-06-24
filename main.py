@@ -6,15 +6,48 @@ cap = cv2.VideoCapture(0)
 while True:
     success, img = cap.read()
 
-    # Convert BGR → HSV
     hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 
-    # Blue color range
-    lower_blue = np.array([90, 100, 50])
+    lower_blue = np.array([100, 150, 50])
     upper_blue = np.array([140, 255, 255])
 
-    # Create mask
     mask = cv2.inRange(hsv, lower_blue, upper_blue)
+
+    contours, hierarchy = cv2.findContours(
+        mask,
+        cv2.RETR_EXTERNAL,
+        cv2.CHAIN_APPROX_SIMPLE
+    )
+
+    for cnt in contours:
+
+        area = cv2.contourArea(cnt)
+
+        if area > 500:
+
+            x, y, w, h = cv2.boundingRect(cnt)
+
+            # Draw rectangle
+            cv2.rectangle(
+                img,
+                (x, y),
+                (x + w, y + h),
+                (255, 0, 0),
+                3
+            )
+
+            # Find center point
+            cx = x + w // 2
+            cy = y + h // 2
+
+            # Draw center point
+            cv2.circle(
+                img,
+                (cx, cy),
+                8,
+                (0, 0, 255),
+                cv2.FILLED
+            )
 
     cv2.imshow("Camera", img)
     cv2.imshow("Mask", mask)
