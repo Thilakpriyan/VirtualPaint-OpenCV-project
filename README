@@ -1,0 +1,206 @@
+# 🎨 Virtual Paint using OpenCV
+
+A real-time **Computer Vision** application built using **Python** and **OpenCV** that enables users to draw in the air using a blue-colored object. The application detects the object through a webcam, tracks its movement, and converts the motion into virtual drawing on the screen.
+
+This project demonstrates the fundamentals of image processing, object tracking, contour detection, and real-time video analysis using OpenCV.
+
+---
+
+# ✨ Features
+
+* 📹 Real-time webcam access
+* 🎯 Blue object detection using HSV color space
+* 🖼️ Binary mask generation
+* 📦 Contour detection
+* 📍 Bounding box and center point tracking
+* 🧹 Noise reduction using Morphological Operations
+* ✍️ Real-time virtual painting
+* 🗑️ Clear canvas functionality
+* ⚡ Smooth real-time performance
+
+---
+
+# 📚 Project Workflow
+
+```text
+Webcam
+   │
+   ▼
+Capture Video Frame
+   │
+   ▼
+Convert BGR → HSV
+   │
+   ▼
+Generate Color Mask
+   │
+   ▼
+Morphological Operations
+(Erosion + Dilation)
+   │
+   ▼
+Contour Detection
+   │
+   ▼
+Center Point Tracking
+   │
+   ▼
+Store Coordinates
+   │
+   ▼
+Connect Consecutive Points
+   │
+   ▼
+Virtual Drawing
+```
+
+---
+
+# 📂 Project Structure
+
+```text
+VirtualPaint-OpenCV-project/
+│
+├── main.py
+├── requirements.txt
+└── README.md
+```
+
+---
+
+# 🧠 Computer Vision Concepts Used
+
+* Image Processing
+* BGR to HSV Color Conversion
+* Color Thresholding
+* Binary Masking
+* Contour Detection
+* Bounding Rectangle
+* Center Point Calculation
+* Morphological Operations
+* Real-Time Object Tracking
+* Virtual Canvas Rendering
+
+---
+
+# ⚙️ Technologies Used
+
+| Category            | Technology |
+| ------------------- | ---------- |
+| Language            | Python     |
+| Computer Vision     | OpenCV     |
+| Numerical Computing | NumPy      |
+| IDE                 | PyCharm    |
+| Version Control     | Git        |
+| Repository          | GitHub     |
+
+---
+
+# 🚀 Installation
+
+Clone the repository
+
+```bash
+git clone https://github.com/Thilakpriyan/VirtualPaint-OpenCV-project.git
+```
+
+Move into the project directory
+
+```bash
+cd VirtualPaint-OpenCV-project
+```
+
+Create a virtual environment
+
+```bash
+python -m venv venv
+```
+
+Activate the environment
+
+### Windows
+
+```bash
+venv\Scripts\activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Run the application
+
+```bash
+python main.py
+```
+
+---
+
+# 🎮 Controls
+
+| Action       | Key                  |
+| ------------ | -------------------- |
+| Draw         | Move the blue object |
+| Clear Canvas | C                    |
+| Quit         | Q                    |
+
+---
+
+# 📈 Future Enhancements
+
+* 🎨 Multiple color selection
+* 🖌️ Brush size control
+* 🧽 Eraser tool
+* 💾 Save drawing as image
+* ↩️ Undo / Redo
+* ✋ Finger tracking using MediaPipe
+* 👆 Draw without a colored marker
+* 🔤 Air handwriting recognition
+* 🖼️ Shape detection
+* 🧠 AI-powered gesture recognition
+
+---
+
+# 📖 Learning Outcomes
+
+Through this project, I learned:
+
+* Real-time image processing using OpenCV
+* HSV color segmentation
+* Binary image thresholding
+* Contour detection techniques
+* Object localization
+* Morphological image processing
+* Real-time computer vision pipelines
+* Interactive graphics rendering
+
+---
+
+# 📦 Requirements
+
+```text
+opencv-python==4.13.0.92
+numpy==2.5.0
+```
+
+Install using:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+# 👨‍💻 Author
+
+**Thilakpriyan**
+
+Computer Science Engineering Student
+
+GitHub: https://github.com/Thilakpriyan
+
+---
+
+## ⭐ If you found this project useful, consider giving it a Star!
